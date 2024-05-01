@@ -9,3 +9,7 @@ sentence-transformers==2.5.*
 faiss-cpu==1.8.*
 langchain==0.1.13
 streamlit==1.29.*
+huggingface_hub==0.22.2
+llama-index==0.10.33
+cohere==5.3.4
+llama-cpp-python==
