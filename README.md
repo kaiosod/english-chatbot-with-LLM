@@ -1,6 +1,5 @@
 # english-chatbot-with-LLM
 
-## How to run Streamlit
+## How to run Chainlit
 
-python -m streamlit run your_app.py
-
+python -m chainlit run main.py
