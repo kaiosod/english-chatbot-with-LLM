@@ -3,9 +3,9 @@ import chainlit as cl
 
 @cl.on_chat_start
 async def on_chat_start():
-    cl.user_session.set("chat_history", [])
-    #cl.user_session.set("chat_history", [{"role": "system",
-    #                     "content": "behave as if you are news reporter."}])
+    # cl.user_session.set("chat_history", [])
+    cl.user_session.set("chat_history", [{"role": "system",
+                        "content": "You are a bot and a english online teacher focused on english learning through conversation via internet chat, your name is Jay"}])
 
 @cl.on_message
 async def generate_response(query: cl.Message):
