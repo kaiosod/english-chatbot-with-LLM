@@ -165,4 +165,5 @@ app.exe
 /dist
 /build
 /img
+backup.py
 

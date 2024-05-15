@@ -10,6 +10,9 @@ root = tk.Tk()
 
 result = subprocess.run("pip install -r requirements.txt", shell=True, capture_output=True, text=True)
 
+# pip install -U git+https://github.com/PrithivirajDamodaran/Gramformer.git
+# python -m spacy download en
+
 if result.returncode == 0:
     print(result.stdout)
 else:
