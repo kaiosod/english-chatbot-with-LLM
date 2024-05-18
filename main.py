@@ -45,3 +45,7 @@ async def generate_response(query: cl.Message):
 
     # await response.update()
 
+# Remover readme do chainlit
+# adicionar correcao no final do texto
+# desabilitar emojis
+

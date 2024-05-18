@@ -1,3 +1,0 @@
-Remover readme do chainlit
-adicionar correcao no final do texto
-desabilitar emojis
