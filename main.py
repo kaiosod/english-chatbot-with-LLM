@@ -19,7 +19,7 @@ async def generate_response(query: cl.Message):
     chat_history.append({"role": "user", "content": query.content})
     
     response = cl.Message(content="")
-    answer = ollama.chat(model="llama2", 
+    answer = ollama.chat(model="gemma:2b", # llama2 - the last one tested for chatbot 
                          messages=chat_history, 
                          stream=True)
     # Generate answer based on user input (query.content)
