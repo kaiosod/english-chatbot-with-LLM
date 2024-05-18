@@ -167,3 +167,7 @@ app.exe
 /img
 backup.py
 
+/.chainlit
+todo.txt
+
+
