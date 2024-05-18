@@ -2,11 +2,12 @@ import ollama
 import chainlit as cl
 import autocorrect
 
+
 @cl.on_chat_start
 async def on_chat_start():
     # cl.user_session.set("chat_history", [])
     cl.user_session.set("chat_history", [{"role": "system",
-                        "content": "You are an online English teacher focused on learning English through internet chat conversations. Your name is Jay. You should always provide short, creative and natural answers, and also correct whenever the user writes something wrong. How about Let's start with a brief introduction? Something like: 'Hey there! I'm Jay, your friendly online English teacher. Ready to dive into some English conversation and learning? What do you think?"}])
+                        "content": "You are an online English teacher focused on learning English through internet chat conversations. Your name is Jay, a teacher that always provide short and natural answers. How about Let's start with a brief introduction? Something like: 'Hey there! I'm Jay, your friendly online English teacher. How are you doing today?"}])
 
 @cl.on_message
 async def generate_response(query: cl.Message):
@@ -45,7 +46,5 @@ async def generate_response(query: cl.Message):
 
     # await response.update()
 
-# Remover readme do chainlit
-# adicionar correcao no final do texto
-# desabilitar emojis
+
 
