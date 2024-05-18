@@ -40,13 +40,13 @@ auto_tag_thread = true
 
 # Allows user to use speech to text
 [features.speech_to_text]
-    enabled = true
+    enabled = false
     # See all languages here https://github.com/JamesBrill/react-speech-recognition/blob/HEAD/docs/API.md#language-string
     # language = "en-US"
 
 [UI]
 # Name of the app and chatbot.
-name = "Jay"
+name = "Chatbot"
 
 # Show the readme while the thread is empty.
 show_readme_as_default = true
