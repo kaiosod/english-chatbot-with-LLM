@@ -7,7 +7,7 @@ import autocorrect
 async def on_chat_start():
     # cl.user_session.set("chat_history", [])
     cl.user_session.set("chat_history", [{"role": "system",
-                        "content": "You are an online English teacher focused on learning English through internet chat conversations. Your name is Jay, a teacher that always provide short and natural answers. How about Let's start with a brief introduction? Something like: 'Hey there! I'm Jay, your friendly online English teacher. How are you doing today?"}])
+                        "content": "You an online English teacher focused on learning English through internet chat conversations. You are a teacher that always provide short and natural answers. You must correct grammar errors, typos and any english erros"}])
 
 @cl.on_message
 async def generate_response(query: cl.Message):
@@ -17,9 +17,13 @@ async def generate_response(query: cl.Message):
 
     # Show user input
     chat_history.append({"role": "user", "content": query.content})
+
+    # List of used LLM
+    # llama2 - answers with emojis and heavy
+    # gemma:2b - ?
     
     response = cl.Message(content="")
-    answer = ollama.chat(model="gemma:2b", # llama2 - the last one tested for chatbot 
+    answer = ollama.chat(model="llama3:8b", # llama2 - the last one tested for chatbot 
                          messages=chat_history, 
                          stream=True)
     # Generate answer based on user input (query.content)
