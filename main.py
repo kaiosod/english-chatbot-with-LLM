@@ -13,6 +13,7 @@ async def on_chat_start():
 async def generate_response(query: cl.Message):
     chat_history = cl.user_session.get("chat_history")
 
+    # fixed text
     fixed = autocorrect.grammar_checker(query.content)
 
     # Show user input
@@ -26,6 +27,7 @@ async def generate_response(query: cl.Message):
     answer = ollama.chat(model="llama3:8b", # llama2 - the last one tested for chatbot 
                          messages=chat_history, 
                          stream=True)
+    
     # Generate answer based on user input (query.content)
     complete_answer = ""
     for token_dict in answer:
@@ -33,16 +35,16 @@ async def generate_response(query: cl.Message):
         complete_answer += token
         await response.stream_token(token)
     
-
-    # complete_answer += f"\n {fixed}"
-    # Show Bot input
-    print(complete_answer)
-    print(type(complete_answer))
-
     final_message = complete_answer + f"\n {fixed}"
 
-    chat_history.append({"role": "assistant", "content": complete_answer + "FIM"})    
+    chat_history.append({"role": "assistant", "content": complete_answer + ""})    
     cl.user_session.set("chat_history", chat_history)
+
+    if fixed == 1: 
+        pass
+    else: 
+        # Add correction
+        response = cl.Message(content= f"Correction: {fixed}")
 
     await response.send()
 
