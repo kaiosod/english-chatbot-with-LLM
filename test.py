@@ -1,19 +1,27 @@
-import autocorrect
+# import autocorrect
 
-text1 = "Heyy there! I are Kaio"
-text2 = "Hey there"
+# text1 = "Heyy there! I are Kaio"
+# text2 = "Hey there"
 
-# Adicionando texto à última linha da string
-# text += f"\n Keep the conversation flowing! "
+# print(autocorrect.grammar_checker(text2))
 
-print(autocorrect.grammar_checker(text2))
+# ---
 
-# gram = {"Correto"}
-# string = "Correto"
+# from spellchecker import SpellChecker
 
-# print(str(gram)[2:-2])
+# text = "You is correct"
+# spell = SpellChecker(language="en")
 
-# if str(gram)[2:-2] == string:
-#     print("Igual")
-# else:
-#     print("Diferente")
+# words = text.split()
+
+# all_words = []
+
+# for word in words:
+#     corrected_word = spell.correction(word)
+#     all_words.append(corrected_word)
+
+# all_words = " ".join(all_words)
+
+# print(all_words)
+
+print(f"<b>Correction:</b> ")
