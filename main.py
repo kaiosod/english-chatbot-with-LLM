@@ -1,6 +1,7 @@
 import ollama
 import chainlit as cl
 import autocorrect
+from gtts import gTTS
 
 
 @cl.on_chat_start
@@ -18,13 +19,9 @@ async def generate_response(query: cl.Message):
 
     # Show user input
     chat_history.append({"role": "user", "content": query.content})
-
-    # List of used LLM
-    # llama2 - answers with emojis and heavy
-    # gemma:2b - ?
     
     response = cl.Message(content="")
-    answer = ollama.chat(model="llama3:8b", # llama2 - the last one tested for chatbot 
+    answer = ollama.chat(model="llama3:8b", # Llama3:8b
                          messages=chat_history, 
                          stream=True)
     
@@ -34,8 +31,11 @@ async def generate_response(query: cl.Message):
         token = token_dict["message"]["content"]
         complete_answer += token
         await response.stream_token(token)
+
+    tts = gTTS(text=f'{complete_answer}', lang='en')
+    tts.save("output.mp3")
     
-    final_message = complete_answer + f"\n {fixed}"
+    # final_message = complete_answer + f"\n {fixed}"
 
     chat_history.append({"role": "assistant", "content": complete_answer + ""})    
     cl.user_session.set("chat_history", chat_history)
@@ -46,11 +46,19 @@ async def generate_response(query: cl.Message):
         # Add correction
         response = cl.Message(content= f"Correction: {fixed}")
 
+    # send the correction message
     await response.send()
 
-    # query.content = f"\n {fixed}"
+    #Audio
+    elements = [
+        cl.Audio(name="output.mp3", path="output.mp3", display="inline"),
+    ]
 
-    # await response.update()
+    await cl.Message(
+        content="Voice Output",
+        elements=elements,
+    ).send()
+
 
 
 

@@ -1,27 +1,17 @@
-# import autocorrect
+# import chainlit as cl
 
-# text1 = "Heyy there! I are Kaio"
-# text2 = "Hey there"
+# @cl.on_chat_start
+# async def main():
+#     elements = [
+#         cl.Audio(name="example.mp3", path="example.mp3", display="inline"),
+#     ]
+#     await cl.Message(
+#         content="Here is an audio file",
+#         elements=elements,
+#     ).send()
 
-# print(autocorrect.grammar_checker(text2))
+from gtts import gTTS
+import os
 
-# ---
-
-# from spellchecker import SpellChecker
-
-# text = "You is correct"
-# spell = SpellChecker(language="en")
-
-# words = text.split()
-
-# all_words = []
-
-# for word in words:
-#     corrected_word = spell.correction(word)
-#     all_words.append(corrected_word)
-
-# all_words = " ".join(all_words)
-
-# print(all_words)
-
-print(f"<b>Correction:</b> ")
+tts = gTTS(text='Hello, how are you?', lang='en')
+tts.save("output.mp3")
