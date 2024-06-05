@@ -163,7 +163,7 @@ cython_debug/
 /build
 /img
 
-test.py
+app.py
 
 
 
