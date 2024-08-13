@@ -82,6 +82,12 @@ custom_css = '/public/stylesheet.css'
 # Be careful: If this is a relative path, it should not start with a slash.
 # custom_build = "./public/build"
 
+# Dark mode colors
+# background = "#0e1116"
+# main = "#A2B3CD"
+# dark = "#303A4B"
+# light = "#303A4B"
+
 # Override default MUI light theme. (Check theme.ts)
 [UI.theme]
     #font_family = "Inter, sans-serif"
@@ -97,7 +103,7 @@ custom_css = '/public/stylesheet.css'
 # Override default MUI dark theme. (Check theme.ts)
 [UI.theme.dark]
     background = "#0e1116"
-    # paper = "#303A4B"
+    # paper = "#FAFAFA"
 
     [UI.theme.dark.primary]
         main = "#A2B3CD"
