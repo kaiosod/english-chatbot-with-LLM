@@ -1,0 +1,9 @@
+1. Apply an algorithm that analyzes the user's English level through the answers
+
+2. Find a desktop alternative to Chainlit
+    2.1 Make the tool 100% desktop
+
+3. Add other voice options through other profiles
+
+4. Replace ollama desktop with another alternative
+
